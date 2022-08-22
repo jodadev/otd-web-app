@@ -1,0 +1,67 @@
+/* CONTAINERS */
+.page-container{
+    background-color: var(--primary-color);
+}
+.content{
+    padding: 50px 0;
+    background-color: #fff;
+}
+.columnContent{
+    width: 50%;
+}
+#arrowSpan{
+    width: 40%;
+    height: 40%;
+}
+
+/* TEXT */
+div h2, h3, h1{
+    color: var(--secondary-color);
+}
+.ciphered h4{
+    color: red;
+}
+.deciphered h4{
+    color: green;
+}
+
+/* IMAGES */
+.padlockImg{
+    width: 10%;
+    height: auto;
+    object-fit: contain;
+    
+}
+#arrowSpan img{
+    width: 100%;
+    object-fit: contain;
+    filter: invert(61%) sepia(99%) saturate(929%) hue-rotate(336deg) brightness(105%) contrast(93%);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* BUTTONS */
+.customBtn{
+    padding: 5px;
+    border: 5px dashed var(--secondary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+}
+.customBtn:hover{
+    border: 5px dashed var(--primary-color);
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    #arrowSpan{
+        width: 10%;
+        height: 80%;
+    }
+    .columnContent{
+        width: 100%;
+    }
+}
+    
