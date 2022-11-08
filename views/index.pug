@@ -7,24 +7,28 @@ html(lang="en")
         include ./core/header-items.pug
         link(rel="shortcut icon", href="/assets/img/favicon.png", type="image/x-icon")
         link(rel="stylesheet", href="/css/index.css")
-        title OTD Web App - Developed by JODA Dev
+        title OTP Web App - Developed by JODA Dev
     body 
         div.page-container
             div.content.container
                 // Page Info
-                div.container.text-center
+                div.container.pageInfo
                     img.padlockImg(src="/assets/img/favicon.png", alt="lock")
                     h1 One-Time Pad Cipher
-                    p.small by JODA Dev
-                    p
-                    |This web app uses a OTD &#40;One-Time Pad&#41; algorithm to cipher and decipher text.
-                    |Rest assure, it does not use a database to store ANY data! This algorithm and website 
-                    |was developed by me for the purpose of portfolio and entertainment. You may use this with friends and share
-                    |ciphers with each other by sending the ciphered text and key through other means &#40;email, text, etc&#41;.
-                    |In no way shall this be used for commercial use or for security uses, it was not designed and developed for it. 
-                    |Hope you enjoy it!
+                    p.small.mb-1 by JODA Dev
+                    
+                    a(href="https://twitter.com/jodadev2" target="_blank" rel="noreferrer noopener")
+                        img.social-icon.mb-3(src="/assets/img/Twitter-logo-png.png", alt="Twitter")
+                        
+                    p.pageDesc
+                        |This web app uses a OTP &#40;One-Time Pad&#41; algorithm to cipher and decipher text.
+                        |Rest assure, it does not use a database to store ANY data! This algorithm and website 
+                        |was developed by me for the purpose of portfolio and entertainment. You may use this with friends and share
+                        |ciphers with each other by sending the ciphered text and key through other means &#40;email, text, etc&#41;.
+                        |In no way shall this be used for commercial use or for security uses, it was not designed and developed for it. 
+                        |Hope you enjoy it!
 
-                // Interaction/Form
+                // Form Info
                 div.row.mt-5.mx-0.w-100
                     div.col-12.col-lg-5.d-flex.justify-content-center.justify-lg-content-end.mb-5.mb-lg-0
                         div.columnContent
@@ -33,14 +37,31 @@ html(lang="en")
                                 h3 How to cipher
                                 p 
                                 |Enter a text to cipher in the <i>"Enter text to cipher"</i> text field below and click the 'Cipher' button. 
-                                |The ciphered text display along with the key to decipher it below the input field. You may use letters, 
-                                |numbers and symbols&#40;some symbols may not work&#41;. <br><b>Tip:</b> to auto-fill the cipher text
-                                |and key in the Decipher Text field, click the arrow icon - must have already ciphered text to work.
+                                |The ciphered text will display along with the key to decipher it below the input field. You may use letters, 
+                                |numbers and symbols&#40;some symbols may not work&#41;. <br><br><b>Tip:</b> to auto-fill the cipher text
+                                |and key in the Decipher Text field, click the arrow icon.    
+
+                    div.col-12.col-lg-2.d-flex.justify-content-center.align-items-center.mb-5.mb-lg-0
+
+                    div.col-12.col-lg-5.d-flex.justify-content-center.justify-lg-content-start
+                        div.columnContent
+
+                            div.mb-4
+                                h3 How to decipher
+                                p 
+                                |Enter the ciphered text <b>EXACTLY</b> as it was given in the <i>"Enter text to decipher"</i> 
+                                |text field below. Enter the key <b>EXACTLY</b> as it was given in the <i>"Enter key"</i> text field below. 
+                                |Click the 'Decipher' button. The deciphered text will be displayed below the input field.
+                
+                // Interaction/Form
+                div.row.mx-0.py-3.w-100
+                    div.col-12.col-lg-5.d-flex.justify-content-center.justify-lg-content-end.mb-5.mb-lg-0
+                        div.columnContent
                             
                             h2 Cipher Text
-                            form 
+                            form
                                 div.d-grid.gap-2
-                                    textarea(id="textInput" name="text", placeholder="Enter text to cipher").w-100
+                                    textarea(id="textInput" name="text", placeholder="Enter text to cipher")
                                     input.customBtn(id="cipher" type="submit", value="Cipher")
                             div
                                 div(id="cipher_Response_Container" hidden).ciphered
@@ -56,13 +77,6 @@ html(lang="en")
 
                     div.col-12.col-lg-5.d-flex.justify-content-center.justify-lg-content-start
                         div.columnContent
-
-                            div.mb-4
-                                h3 How to decipher
-                                p 
-                                |Enter the ciphered text <b>EXACTLY</b> as it was given in the <i>"Enter text to decipher"</i> 
-                                |text field below. Enter the key <b>EXACTLY</b> as it was given in the <i>"Enter key"</i> text field below. 
-                                |Click the 'Decipher' button. The deciphered text will be displayed below the input field.
                             
                             h2 Decipher Text
                             form
@@ -76,7 +90,8 @@ html(lang="en")
                                     hr
                                     h4 Deciphered text: 
                                     p(id="decipheredText")
-                
+
+
                 // Error Message Container
                 div( id="errorContainer" hidden).container.alert.alert-danger.mt-5.text-center
                     p(id="errorText") #{error}

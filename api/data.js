@@ -1,4 +1,7 @@
-const characters = {
+/**
+ * Dictionary of available characters that may be ciphered.
+ */
+ const characters = {
     'a': 0,
     'b': 1,
     'c': 2,
@@ -62,34 +65,16 @@ const characters = {
     '9': 60,
 }
 
-const GetListSize = () => {
+const GetDataSize = () => {
     return Object.keys(characters).length;
 }
 
-const RandomKey = () => {
-    return Math.floor(Math.random() * (GetListSize() - 1) + 1);
-}
-
-const RemoveWhiteSpace = (text) => {
-    return text.trim();
-}
-
-const ValidateLowercase = (char) => {
-    let isCapital = char.match(/[A-Z]/g);
-    if(isCapital !== null && isCapital.length > 0)
-        return char.toLowerCase();
-    return char;
-}
-
-const isChar = (char) => {
-    return characters[char] !== undefined ? true : false;
+const GetCipheredCharacter = (charId) =>{
+    return Object.keys(characters).find(key => characters[key] === charId);
 }
 
 module.exports = {
     characters,
-    RandomKey,
-    ValidateLowercase,
-    GetListSize,
-    isChar, 
-    RemoveWhiteSpace
+    GetDataSize,
+    GetCipheredCharacter
 }

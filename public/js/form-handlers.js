@@ -11,34 +11,33 @@ const errorText = document.getElementById('errorText');
 // Event Handlers
 document.getElementById('cipher').addEventListener('click', (e) => {
     ClearErrorMessage();
-    
     e.preventDefault();
 
+    // Get copy and paste text input
     var text = e.target.parentNode.querySelector('[name="text"]').value;
 
-    if(!IsValidInput(text, "null", "Please enter some text to cipher."))
-        return;
-       
-    fetch('/cipher', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            text: text
+    (async () => {
+        fetch('/cipher', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: text,
+            })
         })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.error){
-            DisplayError(data.error);
-            return;
-        }
-        cipherContainer.hidden = false;
-        cipheredText.innerHTML = data.text;
-        cipheredKey.innerHTML = data.key;
-    })
-    .catch(err => console.log(err));
+        .then(res => res.json())
+        .then(data => {
+            if(data.error){
+                DisplayError(data.error);
+                return;
+            }
+            cipherContainer.hidden = false;
+            cipheredText.innerHTML = data.text;
+            cipheredKey.innerHTML = data.key;
+        })
+        .catch(err => console.log(err));
+      })();    
 }); 
 document.getElementById('decipher').addEventListener('click', (e) => {
     ClearErrorMessage();
