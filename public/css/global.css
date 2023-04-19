@@ -1,4 +1,86 @@
 :root{
     --primary-color: #fcb33b;
     --secondary-color: #f69838;
+    --off-color: #fffacd;
+    --font-color: #333333;
+}
+
+/* BUTTONS */
+.customBtn{
+    padding: 5px 10px;
+    border: 5px dashed var(--secondary-color);
+    border-radius: 5%;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.customBtn:hover{
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-weight: 600;
+}
+.btn {
+    background-color: var(--primary-color);
+    border: none;
+}
+.btn:hover{
+    background-color: var(--secondary-color);
+}
+
+
+.animated-btn{
+    position:relative;
+    animation: button-jump;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+.animated-btn:hover{
+    animation: none;
+}
+
+
+p,h2,h3,h3,h4,h5,h6{
+    color: var(--font-color);
+}
+
+
+/**************/
+/*  SCROLL-BAR  */
+/**************/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+} 
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--black-transparent);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+@keyframes button-jump {
+    0%{
+        bottom: 0px;
+    }
+    5% {
+        bottom: 25px;
+    }
+    10% {
+        bottom: 0px;
+    }
+    15% {
+        bottom: 25px;
+    }
+    20%, 100%{
+        bottom: 0;
+    }
 }

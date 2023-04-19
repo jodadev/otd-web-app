@@ -1,6 +1,6 @@
 {
   "name": "otd-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "One-Time Pad Web Application. Encrypt and Decrypt Text.",
   "main": "index.js",
   "scripts": {
